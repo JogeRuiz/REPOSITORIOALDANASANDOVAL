@@ -1,0 +1,490 @@
+/* ============ ESTILOS.CSS: NEO-BRUTALISMO INSTITUCIONAL (MASTER FINAL) ============ */
+
+/* 1. IMPORTACIÓN DE FUENTES */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    /* --- PALETA DE COLORES --- */
+    /* Institucionales Base */
+    --primary: #2B163B;        /* Morado Profundo (Texto, Bordes, Footer) */
+    --secondary: #245D63;      /* Verde Petróleo (Fondos oscuros) */
+    
+    /* Acentos Neón / Digital */
+    --neon-magenta: #FF2E9F;   /* Botones principales, Hover */
+    --neon-amber: #FFC857;     /* Marquee, Etiquetas */
+    --neon-cyan: #00BCD4;      /* Detalles, Bordes tabla */
+    --accent-violet: #9B5CFF;  /* Enlaces */
+
+    /* Fondos y Neutros */
+    --bg-paper: #F5EFE3;       /* Fondo Principal (Crema) */
+    --bg-dark: #221F26;        /* Fondo Oscuro (Widgets) */
+    --neutral-gray: #9E9EA0;   /* Bordes secundarios */
+    
+    /* --- ESTRUCTURA BRUTALISTA --- */
+    --border: 3px solid var(--primary);
+    --border-thin: 1px solid var(--primary);
+    --shadow: 6px 6px 0px 0px var(--primary);        /* Sombra dura */
+    --shadow-hover: 3px 3px 0px 0px var(--neon-cyan);/* Sombra al interactuar */
+    --radius: 0px;                                   /* Bordes rectos (Estilo rudo) */
+    --marquee-height: 3.2rem;                        /* Altura barra superior */
+    
+    /* --- TIPOGRAFÍA --- */
+    --font-heading: 'Space Grotesk', sans-serif; /* Títulos */
+    --font-body: 'DM Sans', sans-serif;          /* Textos */
+    --font-mono: 'JetBrains Mono', monospace;    /* Datos técnicos */
+}
+
+/* ============ 2. RESET & LAYOUT PRINCIPAL ============ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Asegura altura completa */
+    margin: 0;
+}
+
+body {
+    background-color: var(--bg-paper);
+    color: var(--primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    
+    /* CRÍTICO: Flex column para empujar el footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Main crece para ocupar el espacio vacío */
+main {
+    flex: 1 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+/* ============ 3. ESTILOS GENERALES ============ */
+img {
+    width: 100%;
+    display: block;
+    border: var(--border);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+ul { list-style: none; padding: 0; margin: 0; }
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+p { margin-bottom: 1rem; }
+
+/* ============ 4. BARRA DE NOTICIAS (MARQUEE) ============ */
+.marquee-bar {
+    background-color: var(--neon-amber);
+    border-bottom: var(--border);
+    padding: 0.8rem 0;
+    min-height: var(--marquee-height);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: var(--font-heading); /* Fuente gruesa */
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--primary);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: scroll 40s linear infinite;
+    padding-left: 0;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ============ 5. BARRA DE NAVEGACIÓN ============ */
+.navbar {
+    background-color: var(--primary);
+    border-bottom: var(--border);
+    padding: 1rem 0;
+    position: sticky;
+    top: var(--marquee-height);
+    z-index: 150;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--neon-cyan);
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+.brand-logo {
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--neon-cyan);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: var(--bg-paper);
+    font-family: var(--font-heading);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 5px 0;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--neon-magenta);
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+}
+
+/* ============ 6. BOTONES Y TAGS ============ */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    background-color: var(--neon-magenta);
+    color: var(--primary);
+    transition: 0.2s;
+    text-align: center;
+    cursor: pointer;
+    width: auto;
+}
+
+.btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 0 var(--primary);
+}
+
+.btn-primary { background-color: var(--neon-magenta); }
+.btn-secondary { background-color: var(--secondary); color: var(--bg-paper); }
+.btn-outline { background: transparent; border: 2px solid var(--primary); }
+.btn-full { width: 100%; display: block; }
+
+.tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    background-color: var(--neon-cyan);
+    border: 1px solid var(--primary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+.tag-amber { background-color: var(--neon-amber); }
+.tag-dark { background-color: var(--bg-dark); color: var(--neon-cyan); }
+
+/* ============ 7. TARJETAS (VERTICALES Y HORIZONTALES) ============ */
+
+/* Tipo 1: Tarjeta Vertical (Catálogo) */
+.card {
+    background-color: var(--bg-paper);
+    border: var(--border);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.card img {
+    margin-bottom: 1rem;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Tipo 2: Tarjeta Horizontal (Eventos) */
+.event-card {
+    display: flex;
+    flex-direction: row; /* Lado a lado */
+    background-color: var(--bg-paper);
+    border: var(--border);
+    box-shadow: var(--shadow);
+    margin-bottom: 3rem;
+    overflow: hidden;
+    min-height: 350px;
+}
+
+.event-card__media {
+    flex: 0 0 350px; /* Ancho fijo para la imagen */
+    width: 350px;
+    border-right: var(--border);
+    position: relative;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Muestra el flyer completo sin recortar */
+    border: none;
+    display: block;
+}
+
+.event-card__body {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ============ 8. SECCIONES Y GRIDS ============ */
+.hero {
+    background-color: var(--secondary);
+    color: var(--bg-paper);
+    padding: 4rem 0;
+    border-bottom: var(--border);
+}
+.hero h1 { color: var(--neon-amber); font-size: 3.5rem; margin-bottom: 1rem; }
+.hero-small { padding: 3rem 0; }
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    align-items: start;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* ============ 9. TABLAS Y WIDGETS ============ */
+.table-wrapper {
+    overflow-x: auto;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    background: var(--bg-paper);
+    margin-bottom: 2rem;
+}
+
+.neo-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-paper);
+    font-family: var(--font-mono);
+}
+
+.neo-table th {
+    background: var(--primary);
+    color: var(--neon-cyan);
+    padding: 1rem;
+    text-align: left;
+    border-bottom: var(--border);
+    border-right: 1px solid var(--primary);
+}
+
+.neo-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--neutral-gray);
+    border-right: 1px solid var(--neutral-gray);
+    color: var(--primary);
+}
+.neo-table tr:last-child td { border-bottom: none; }
+
+.status-box {
+    background-color: var(--bg-dark);
+    color: var(--bg-paper);
+    padding: 2rem;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.status-indicator {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    line-height: 1;
+    color: var(--neon-magenta);
+}
+
+/* ============ 10. FORMULARIOS ============ */
+.form-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--primary);
+    background: var(--bg-paper);
+    font-family: var(--font-mono);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: var(--primary);
+}
+
+.form-input:focus {
+    outline: none;
+    background: #fff;
+    box-shadow: 4px 4px 0 var(--neon-cyan);
+}
+
+.form-label {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+}
+
+/* ============ 11. MEGA FOOTER (NUEVO) ============ */
+footer {
+    flex-shrink: 0;
+    background-color: var(--primary);
+    color: var(--bg-paper);
+    border-top: 6px solid var(--neon-cyan); /* Borde neón */
+    padding: 5rem 0 2rem;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Identidad Footer */
+.footer-brand { display: flex; flex-direction: column; gap: 1rem; }
+.footer-brand img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--neon-amber); }
+.footer-brand h3 { color: var(--neon-amber); font-size: 1.5rem; margin: 0; line-height: 1; }
+.footer-brand p { font-size: 0.9rem; opacity: 0.8; }
+
+/* Columnas */
+.footer-col h4 {
+    color: var(--neon-cyan);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--neon-cyan);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.footer-links li { margin-bottom: 0.8rem; }
+.footer-links a {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--bg-paper);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Efecto hover en links */
+.footer-links a::before {
+    content: '>';
+    color: var(--neon-magenta);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.2s ease;
+}
+.footer-links a:hover { color: var(--neon-magenta); padding-left: 5px; }
+.footer-links a:hover::before { opacity: 1; transform: translateX(0); }
+
+/* Contacto en Footer */
+.footer-contact p { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 0.9rem; align-items: flex-start; }
+.contact-icon { color: var(--neon-amber); font-size: 1.2rem; }
+
+/* Bottom Bar */
+.footer-bottom {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    opacity: 0.6;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* ============ 12. RESPONSIVE ============ */
+@media (max-width: 900px) {
+    .nav-container { flex-direction: column; gap: 1rem; }
+    .nav-menu { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    
+    .hero h1 { font-size: 2.2rem; }
+    
+    /* Eventos en móvil */
+    .event-card { flex-direction: column; height: auto; }
+    .event-card__media {
+        width: 100%;
+        flex: none;
+        height: auto;
+        max-height: 400px;
+        border-right: none;
+        border-bottom: var(--border);
+    }
+    .event-card__body { padding: 1.5rem; }
+}

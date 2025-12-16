@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios | ISFDyT 15</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="marquee-bar">
+        <div class="marquee-content">
+            +++ HORARIOS DE ATENCIÓN +++ ESTADO DEL EDIFICIO EN TIEMPO REAL +++ ABIERTO A LA COMUNIDAD +++ HORARIOS DE ATENCIÓN +++
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <img src="Imagenes/Logo.png" alt="Logo" class="brand-logo">
+                <span>Repositorio ISFDyT Nº15</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="eventos.html" class="nav-link">Eventos</a></li>
+                <li><a href="horarios.html" class="nav-link active">Horarios</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="grid-2">
+            <div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">HORARIOS</h2>
+                <p>Verifica el estado de apertura de la biblioteca.</p>
+
+                <div class="status-box">
+                    <p style="font-family: var(--font-mono); color: var(--neon-amber);">● MONITOR DE ESTADO</p>
+                    <div id="estadoTexto" class="status-indicator">CARGANDO...</div>
+                    <p id="horarioActual" style="opacity: 0.8;">Consultando sistema...</p>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="neo-table">
+                        <thead>
+                            <tr>
+                                <th>Día</th>
+                                <th>Horario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="lunes"><td>Lunes</td><td>08:00 - 22:00</td></tr>
+                            <tr id="martes"><td>Martes</td><td>08:00-12:00 / 18:00-22:00</td></tr>
+                            <tr id="miercoles"><td>Miércoles</td><td>08:00 - 22:00</td></tr>
+                            <tr id="jueves"><td>Jueves</td><td>08:00 - 22:00</td></tr>
+                            <tr id="viernes"><td>Viernes</td><td>08:00 - 22:00</td></tr>
+                            <tr id="sabado"><td>Sábado</td><td>10:00 - 14:00</td></tr>
+                            <tr id="domingo"><td>Domingo</td><td>Cerrado</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <div style="border: 3px solid var(--primary); margin-bottom: 2rem;">
+                    <img src="Imagenes/tomadeapuntes.jpg" alt="Estudiante" style="border:none;">
+                </div>
+                
+                <div class="card" style="background-color: var(--secondary); color: var(--bg-paper);">
+                    <h3 style="color: var(--neon-amber);">UBICACIÓN FÍSICA</h3>
+                    <p>Bvard. Calixto Dellepiane 352,<br>Campana, Buenos Aires.</p>
+                    <a href="https://www.google.com/maps/place/Bvard.+Calixto+Dellepiane+352,+Campana,+Provincia+de+Buenos+Aires" target="_blank" class="btn btn-full" style="background-color: var(--bg-paper); color: var(--primary);">
+                        VER EN MAPA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="Imagenes/Logo.png" alt="Logo ISFDyT 15">
+                <div>
+                    <h3>ISFDyT N° 15</h3>
+                    <p style="margin-top: 0.5rem; color: var(--neon-amber); font-weight: bold;">"Prof. Berta Luisa Marquehosse"</p>
+                </div>
+                <p>Formación docente y técnica pública de calidad. Comprometidos con la educación y la cultura digital.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo Digital</a></li>
+                    <li><a href="eventos.html">Agenda Cultural</a></li>
+                    <li><a href="horarios.html">Horarios y Estado</a></li>
+                    <li><a href="contacto.html">Mesa de Ayuda</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <div class="footer-contact">
+                    <p>
+                        <span class="contact-icon">📍</span>
+                        <span>Bvard. Calixto Dellepiane 352,<br>Campana, Buenos Aires (2804)</span>
+                    </p>
+                    <p>
+                        <span class="contact-icon">📧</span>
+                        <span>Abadiasilvina@gmail.com</span>
+                    </p>
+                    <p>
+                        <span class="contact-icon">📞</span>
+                        <span>(03489) 42-2222</span>
+                    </p>
+                </div>
+            </div>
+
+<div class="footer-col">
+    <h4>Políticas y Avisos</h4>
+    <p style="font-size: 0.85rem; line-height: 1.6;">
+        Este repositorio institucional tiene fines educativos y académicos.
+        Su objetivo es difundir la producción intelectual de la comunidad del ISFDyT N°15
+        en el marco del acceso abierto al conocimiento.
+    </p>
+    <p style="font-size: 0.85rem; line-height: 1.6;">
+        Los materiales publicados respetan los derechos de autor de sus creadores
+        y están destinados exclusivamente al uso pedagógico, académico y de investigación.
+    </p>
+    <p style="font-size: 0.85rem; line-height: 1.6;">
+        La institución no se responsabiliza por el uso indebido de los contenidos descargados.
+    </p>
+</div>
+
+
+        <div class="footer-bottom">
+            <span>© 2025 ISFDyT N° 15</span>
+            <span>:: SISTEMA DE GESTIÓN BIBLIOTECARIA ::</span>
+         
+        </div>
+    </footer>
+
+    <script>
+        function actualizarEstado() {
+            const ahora = new Date();
+            const dia = ahora.getDay();
+            const hora = ahora.getHours();
+            const texto = document.getElementById('estadoTexto');
+            const info = document.getElementById('horarioActual');
+            
+            let abierto = false;
+            // Logica simple
+            if (dia >= 1 && dia <= 5 && hora >= 8 && hora < 22) abierto = true;
+            if (dia === 2 && !((hora >= 8 && hora < 12) || (hora >= 18 && hora < 22))) abierto = false;
+            if (dia === 6 && hora >= 10 && hora < 14) abierto = true;
+
+            if (abierto) {
+                texto.innerText = "ABIERTO";
+                texto.style.color = "#00BCD4";
+                info.innerText = "Bienvenido, puedes ingresar.";
+            } else {
+                texto.innerText = "CERRADO";
+                texto.style.color = "#FF2E9F";
+                info.innerText = "Te esperamos en el próximo turno.";
+            }
+        }
+        actualizarEstado();
+    </script>
+</body>
+</html>
